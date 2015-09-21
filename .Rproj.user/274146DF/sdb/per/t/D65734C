@@ -1,0 +1,16 @@
+{
+    "contents" : "tare <- function(...,div=1) {\n  files <- list.files(...,pattern = \"*.csv\",full.names = TRUE)\n  for (name in files){\n    message(name)\n    tab <- read.csv2(name,header = FALSE)\n    tab <- as.matrix(tab)\n    tab <- rbind(tab[,c(1,2,3)],tab[,c(4,5,6)],tab[,c(7,8,9)])\n    tab <- tab[complete.cases(tab),]\n    tab <- tab[order(tab[,1]),]\n    tab[,1] <- tab[,1]/div\n    write.table(tab, file=paste0(name,\".txt\"),dec = \".\", sep= \",\", row.names = FALSE,col.names = FALSE,qmethod = c(\"double\"))\n  }\n \n}",
+    "created" : 1413366011441.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1589938698",
+    "id" : "D65734C",
+    "lastKnownWriteTime" : 1414670990,
+    "path" : "~/R/Tare/Tare.R",
+    "project_path" : "Tare.R",
+    "properties" : {
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}
